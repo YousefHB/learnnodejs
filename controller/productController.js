@@ -6,8 +6,8 @@ module.exports={
         res.json({
             result:product.map(res=>{
                 return{
-                    id : res.id,
                     name : res.name,
+                    age : res.age,
                 }
             })
         })
@@ -24,9 +24,12 @@ const product = await new PRODUCT({
     name:req.body.name,
     price:req.body.price,
     desc:req.body.desc,
+    age:req.body.age,
+
 }).save()
 res.json({"message":"inserted succesfully",
 id:product.id,
+age:product.age,
 name:product.name})
     },
     deleteProduct:async(req,res)=>{
